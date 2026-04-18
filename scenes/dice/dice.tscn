@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ef8bql2233fd"]
+
+[ext_resource type="Texture2D" uid="uid://b71d0nohu4p3" path="res://resources/d6/d6-1.tres" id="1_4fys5"]
+[ext_resource type="Script" uid="uid://4gkdundopoie" path="res://scenes/dice/dice.gd" id="1_fvt51"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvt51"]
+size = Vector2(19, 19)
+
+[node name="Dice" type="Node2D" unique_id=1679886439]
+script = ExtResource("1_fvt51")
+
+[node name="number" type="Sprite2D" parent="." unique_id=604494920]
+texture = ExtResource("1_4fys5")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1307829890]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=46797615]
+position = Vector2(10.5, 10.5)
+shape = SubResource("RectangleShape2D_fvt51")

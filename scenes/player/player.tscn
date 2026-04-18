@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ccpu6uvtjguey"]
+
+[ext_resource type="Texture2D" uid="uid://deagdrdrkph0c" path="res://resources/witch.png" id="1_8afob"]
+
+[node name="Witch" type="Node2D" unique_id=2102551300]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=360677411]
+texture = ExtResource("1_8afob")
+centered = false
+offset = Vector2(-24, -8)

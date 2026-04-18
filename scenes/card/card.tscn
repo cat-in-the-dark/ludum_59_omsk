@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://byulrertvlw3e"]
+
+[ext_resource type="Script" uid="uid://cu58878yjblr6" path="res://scenes/card/card.gd" id="1_ktuci"]
+[ext_resource type="PackedScene" uid="uid://718te1jmcvel" path="res://scenes/card/card_skin.tscn" id="2_imta7"]
+
+[node name="Card" type="Node2D" unique_id=717324660]
+script = ExtResource("1_ktuci")
+skin_prefab = ExtResource("2_imta7")

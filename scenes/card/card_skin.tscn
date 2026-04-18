@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://718te1jmcvel"]
+
+[ext_resource type="Script" uid="uid://by8xrkvoxrffw" path="res://scenes/card/card_skin.gd" id="1_m2sfi"]
+[ext_resource type="Texture2D" uid="uid://c6kur4c5j7vux" path="res://resources/card_fire.png" id="2_8apba"]
+[ext_resource type="Texture2D" uid="uid://bnobiwpdwulao" path="res://resources/card-d6/d6-1.tres" id="3_dufxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2sfi"]
+size = Vector2(46, 62)
+
+[node name="visual" type="Node2D" unique_id=1166773202]
+script = ExtResource("1_m2sfi")
+
+[node name="icon" type="Sprite2D" parent="." unique_id=2044738522]
+texture = ExtResource("2_8apba")
+centered = false
+
+[node name="number" type="Sprite2D" parent="." unique_id=523306759]
+position = Vector2(19, 50)
+texture = ExtResource("3_dufxv")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1893533766]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1450292150]
+position = Vector2(24, 32)
+shape = SubResource("RectangleShape2D_m2sfi")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,12 +1,28 @@
 [gd_scene format=3 uid="uid://dkvyg7wic348n"]
 
-[ext_resource type="Texture2D" uid="uid://deagdrdrkph0c" path="res://resources/witch.png" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://bhcbuu1tj0irh" path="res://scripts/main.gd" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ccpu6uvtjguey" path="res://scenes/player/player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://i4jv8tinjc71" path="res://scenes/enemies/rock_1/rock.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://bptxerouatwua" path="res://scripts/player_hand.gd" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://ef8bql2233fd" path="res://scenes/dice/dice.tscn" id="4_p57ef"]
+[ext_resource type="Script" uid="uid://bsxhxwxbc3h7x" path="res://scenes/dices.gd" id="4_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=246888789]
+script = ExtResource("1_lbhrr")
 
-[node name="Witch" type="Node2D" parent="." unique_id=1137818560]
+[node name="Player" parent="." unique_id=2102551300 instance=ExtResource("1_yqjtg")]
+position = Vector2(12, 151)
 
-[node name="Sprite2D" type="Sprite2D" parent="Witch" unique_id=819422115]
-position = Vector2(47, 175)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_uwrxv")
+[node name="RockEnemy" parent="." unique_id=263087226 instance=ExtResource("2_yqjtg")]
+position = Vector2(247, 3)
+
+[node name="Dices" type="Node2D" parent="." unique_id=1615678971 node_paths=PackedStringArray("dices")]
+position = Vector2(153, 119)
+script = ExtResource("4_u5sy4")
+dices = [NodePath("Dice")]
+
+[node name="Dice" parent="Dices" unique_id=1679886439 instance=ExtResource("4_p57ef")]
+
+[node name="PlayerHand" type="Node2D" parent="." unique_id=2140193005]
+position = Vector2(125, 224)
+script = ExtResource("4_iywne")
