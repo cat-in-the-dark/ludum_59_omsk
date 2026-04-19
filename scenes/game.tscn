@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bhcbuu1tj0irh" path="res://scripts/main.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://ccpu6uvtjguey" path="res://scenes/player/player.tscn" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://i4jv8tinjc71" path="res://scenes/enemies/rock_1/rock.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://i4jv8tinjc71" path="res://scenes/enemies/rock.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://byulrertvlw3e" path="res://scenes/card/card.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c7m18qed5fyd3" path="res://scenes/enemies/pavuk.tscn" id="3_vtaks"]
 [ext_resource type="Script" uid="uid://bptxerouatwua" path="res://scripts/player_hand.gd" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://cgj0b13acjr6g" path="res://scenes/enemies/tentacle.tscn" id="4_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://ef8bql2233fd" path="res://scenes/dice/dice.tscn" id="4_p57ef"]
 [ext_resource type="Script" uid="uid://bsxhxwxbc3h7x" path="res://scenes/dices.gd" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cqvlotuu2d57b" path="res://scenes/action_button.tscn" id="8_gee14"]
@@ -12,7 +14,7 @@
 
 [node name="Game" type="Node2D" unique_id=246888789]
 script = ExtResource("1_lbhrr")
-enemies = Array[PackedScene]([ExtResource("2_yqjtg")])
+enemies = Array[PackedScene]([ExtResource("4_kvpfn"), ExtResource("2_yqjtg"), ExtResource("3_vtaks")])
 card_prefab = ExtResource("3_lnu2h")
 dice_prefab = ExtResource("4_p57ef")
 

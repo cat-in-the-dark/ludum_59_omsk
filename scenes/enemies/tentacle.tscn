@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cgj0b13acjr6g"]
+
+[ext_resource type="Script" uid="uid://b03uipo8qxuub" path="res://scenes/enemies/enemy.gd" id="1_w5su6"]
+[ext_resource type="Texture2D" uid="uid://cjm5p3ohemfnm" path="res://resources/tentacle.png" id="2_w5su6"]
+[ext_resource type="PackedScene" uid="uid://brb8ensrfwfgk" path="res://scenes/health_bar/HealthBar.tscn" id="3_wxugc"]
+
+[node name="TentacleEnemy" type="Node2D" unique_id=263087226]
+script = ExtResource("1_w5su6")
+dmg = 8
+hp = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1048489907]
+position = Vector2(7, 11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_w5su6")
+centered = false
+
+[node name="HealthBar" parent="." unique_id=1140887869 instance=ExtResource("3_wxugc")]

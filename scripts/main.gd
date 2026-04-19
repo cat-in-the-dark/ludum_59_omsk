@@ -65,7 +65,7 @@ func _ready() -> void:
 	apply_btn.Clicked.connect(apply_cards)
 	enemy_timer.timeout.connect(enemy_turn)
 	setup_level(0)
-	for i in range(3):
+	for i in range(G.MAX_DICES):
 		add_dice()
 	turn()
 
