@@ -11,7 +11,6 @@ func by_card_dice(a: Card, b: Card):
 	return a.dice < b.dice
 
 func claim(card: Card):
-	print(card)
 	self.add_child(card)
 	cards.append(card)
 	cards.sort_custom(by_card_dice)

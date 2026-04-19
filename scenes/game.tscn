@@ -3,12 +3,15 @@
 [ext_resource type="Script" uid="uid://bhcbuu1tj0irh" path="res://scripts/main.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://ccpu6uvtjguey" path="res://scenes/player/player.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://i4jv8tinjc71" path="res://scenes/enemies/rock_1/rock.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://byulrertvlw3e" path="res://scenes/card/card.tscn" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://bptxerouatwua" path="res://scripts/player_hand.gd" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://ef8bql2233fd" path="res://scenes/dice/dice.tscn" id="4_p57ef"]
 [ext_resource type="Script" uid="uid://bsxhxwxbc3h7x" path="res://scenes/dices.gd" id="4_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=246888789]
 script = ExtResource("1_lbhrr")
+card_prefab = ExtResource("3_lnu2h")
+dice_prefab = ExtResource("4_p57ef")
 
 [node name="Player" parent="." unique_id=2102551300 instance=ExtResource("1_yqjtg")]
 position = Vector2(12, 151)
@@ -16,12 +19,9 @@ position = Vector2(12, 151)
 [node name="RockEnemy" parent="." unique_id=263087226 instance=ExtResource("2_yqjtg")]
 position = Vector2(247, 3)
 
-[node name="Dices" type="Node2D" parent="." unique_id=1615678971 node_paths=PackedStringArray("dices")]
+[node name="Dices" type="Node2D" parent="." unique_id=1615678971]
 position = Vector2(153, 119)
 script = ExtResource("4_u5sy4")
-dices = [NodePath("Dice")]
-
-[node name="Dice" parent="Dices" unique_id=1679886439 instance=ExtResource("4_p57ef")]
 
 [node name="PlayerHand" type="Node2D" parent="." unique_id=2140193005]
 position = Vector2(125, 224)
