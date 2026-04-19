@@ -13,8 +13,13 @@ func _ready() -> void:
 
 func add_card():
 	var card: Card = card_prefab.instantiate()
-	card.dice = 3
-	card.variant = Card.CardVariant.LIGHTNING
+	# demo
+	card.dice = randi_range(1, 6)
+	card.variant = [
+		Card.CardVariant.LIGHTNING,
+		Card.CardVariant.FIRE,
+		Card.CardVariant.COLD
+	].pick_random()
 	hand.claim(card)
 
 func add_dice():
@@ -30,3 +35,7 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("roll"):
 		roll()
+
+
+func _on_action_button_clicked(state: ActionButton.State) -> void:
+	print("BUM", state)

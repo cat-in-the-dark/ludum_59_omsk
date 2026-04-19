@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bptxerouatwua" path="res://scripts/player_hand.gd" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://ef8bql2233fd" path="res://scenes/dice/dice.tscn" id="4_p57ef"]
 [ext_resource type="Script" uid="uid://bsxhxwxbc3h7x" path="res://scenes/dices.gd" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cqvlotuu2d57b" path="res://scenes/action_button.tscn" id="8_gee14"]
 
 [node name="Game" type="Node2D" unique_id=246888789]
 script = ExtResource("1_lbhrr")
@@ -26,3 +27,8 @@ script = ExtResource("4_u5sy4")
 [node name="PlayerHand" type="Node2D" parent="." unique_id=2140193005]
 position = Vector2(125, 224)
 script = ExtResource("4_iywne")
+
+[node name="ActionButton" parent="." unique_id=877385344 instance=ExtResource("8_gee14")]
+position = Vector2(19, 94)
+
+[connection signal="Clicked" from="ActionButton" to="." method="_on_action_button_clicked"]
