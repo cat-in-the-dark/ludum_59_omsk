@@ -28,3 +28,10 @@ func can_select() -> bool:
 		if dice.selected:
 			selected += 1
 	return selected < G.MAX_SELECTED
+
+func get_dice_values() -> Array[int]:
+	var values = []
+	for dice in dices:
+		if dice.value != 0:
+			values.append(dice.value)
+	return values

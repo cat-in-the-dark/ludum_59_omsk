@@ -11,14 +11,12 @@
 
 [node name="Game" type="Node2D" unique_id=246888789]
 script = ExtResource("1_lbhrr")
+enemies = Array[PackedScene]([ExtResource("2_yqjtg")])
 card_prefab = ExtResource("3_lnu2h")
 dice_prefab = ExtResource("4_p57ef")
 
 [node name="Player" parent="." unique_id=2102551300 instance=ExtResource("1_yqjtg")]
 position = Vector2(12, 151)
-
-[node name="RockEnemy" parent="." unique_id=263087226 instance=ExtResource("2_yqjtg")]
-position = Vector2(247, 3)
 
 [node name="Dices" type="Node2D" parent="." unique_id=1615678971]
 position = Vector2(153, 119)
@@ -30,5 +28,8 @@ script = ExtResource("4_iywne")
 
 [node name="ActionButton" parent="." unique_id=877385344 instance=ExtResource("8_gee14")]
 position = Vector2(19, 94)
+
+[node name="EnemySpawn" type="Node2D" parent="." unique_id=1600921174]
+position = Vector2(251, 7)
 
 [connection signal="Clicked" from="ActionButton" to="." method="_on_action_button_clicked"]

@@ -6,6 +6,7 @@ enum CardVariant {FIRE, COLD, LIGHTNING}
 
 @export var variant: CardVariant = CardVariant.FIRE
 @export_range(1, 6) var dice: int = 1
+@export var damage: int = 1
 @export var skin_prefab: PackedScene
 
 var skin: CardSkin
@@ -15,3 +16,8 @@ func _ready() -> void:
 	skin.dice = dice
 	skin.variant = variant
 	self.add_child(skin)
+
+func apply_dice(value: int):
+	if value != dice:
+		return
+	# todo tun animation
