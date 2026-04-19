@@ -2,6 +2,7 @@ extends Node2D
 
 class_name Dice
 
+
 @onready var vis_number: Sprite2D = $number
 @onready var hover: Sprite2D = $number/hover
 var selected: bool = false
@@ -21,12 +22,21 @@ var vis_numbers = [
 
 @export var value: int
 
+func set_value(v: int):
+	value = v
+	vis_number.texture = load(vis_numbers[v])
+	
+
 func _ready() -> void:
-	vis_number.texture = load(vis_numbers[value])
+	set_value(0)
 
 func roll():
-	value = randi_range(1, 6)
-	vis_number.texture = load(vis_numbers[value])
+	# TODO: animate it
+	set_value(randi_range(1, 6))
+
+func reset():
+	make_unselected()
+	set_value(0)
 
 func _on_area_2d_mouse_entered() -> void:
 	if value == 0:
@@ -36,19 +46,25 @@ func _on_area_2d_mouse_entered() -> void:
 func _on_area_2d_mouse_exited() -> void:
 	hover.visible = false
 
+func make_selected():
+	selected = true
+	self.vis_number.scale.x = 1.4
+	self.vis_number.scale.y = 1.4
+
+func make_unselected():
+	selected = false
+	self.vis_number.scale.x = 1
+	self.vis_number.scale.y = 1
+
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if value == 0:
 		return
 	if event.is_action_pressed("click") and event.is_pressed():
 		if not selected:
 			if holder.can_select():
-				selected = true
-				self.vis_number.scale.x = 1.4
-				self.vis_number.scale.y = 1.4
+				make_selected()
 			else:
 				# TODO: sfx
 				print("too many selected")
 		else:
-			selected = false
-			self.vis_number.scale.x = 1
-			self.vis_number.scale.y = 1
+			make_unselected()

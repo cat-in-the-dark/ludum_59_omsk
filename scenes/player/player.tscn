@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://ccpu6uvtjguey"]
 
 [ext_resource type="Texture2D" uid="uid://deagdrdrkph0c" path="res://resources/witch.png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://ckqu43im1ti6g" path="res://scenes/player/player.gd" id="1_gmlin"]
+[ext_resource type="PackedScene" uid="uid://brb8ensrfwfgk" path="res://scenes/health_bar/HealthBar.tscn" id="2_dovo2"]
 
 [node name="Witch" type="Node2D" unique_id=2102551300]
+script = ExtResource("1_gmlin")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=360677411]
+position = Vector2(0, 16)
 texture = ExtResource("1_8afob")
 centered = false
 offset = Vector2(-24, -8)
+
+[node name="HealthBar" parent="." unique_id=1140887869 instance=ExtResource("2_dovo2")]
