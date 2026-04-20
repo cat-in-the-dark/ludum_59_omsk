@@ -48,6 +48,7 @@ func show_shop():
 func on_upgrade(dice: int, variant: Card.CardVariant):
 	shop.hide_shop()
 	add_card(dice, variant)
+	turn()
 	
 
 func setup_level(lvl: int):
@@ -158,5 +159,6 @@ func apply_cards():
 		for card in hand.cards:
 			if card.apply_dice(value, state, prev_card):
 				prev_card = card
-
-	enemy_timer.start(0.5)
+	
+	if state.enemy and not state.enemy.killed():
+		enemy_timer.start(0.35)
