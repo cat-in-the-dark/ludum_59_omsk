@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dkvyg7wic348n"]
+
+[ext_resource type="Script" uid="uid://bhcbuu1tj0irh" path="res://scenes/game/game.gd" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ccpu6uvtjguey" path="res://scenes/player/player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://i4jv8tinjc71" path="res://scenes/enemies/rock.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://byulrertvlw3e" path="res://scenes/card/card.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://fprttxjvbd4d" path="res://scenes/enemies/kaktus.tscn" id="3_trtic"]
+[ext_resource type="PackedScene" uid="uid://c7m18qed5fyd3" path="res://scenes/enemies/pavuk.tscn" id="3_vtaks"]
+[ext_resource type="PackedScene" uid="uid://dva4kwig08fwk" path="res://scenes/enemies/metla.tscn" id="4_ir15t"]
+[ext_resource type="Script" uid="uid://bptxerouatwua" path="res://scripts/player_hand.gd" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://cgj0b13acjr6g" path="res://scenes/enemies/tentacle.tscn" id="4_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://ef8bql2233fd" path="res://scenes/dice/dice.tscn" id="4_p57ef"]
+[ext_resource type="Script" uid="uid://bsxhxwxbc3h7x" path="res://scenes/dices.gd" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://itn6ihkspeh4" path="res://scenes/enemies/wtf.tscn" id="5_ca42v"]
+[ext_resource type="PackedScene" uid="uid://cqvlotuu2d57b" path="res://scenes/action_button.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://d3emkmjlpx7bl" path="res://scenes/shop/shop.tscn" id="15_ir15t"]
+[ext_resource type="FontFile" uid="uid://b6k68axjuu08m" path="res://resources/m3x6.ttf" id="15_otnwt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xj4h"]
+line_spacing = -2.0
+font = ExtResource("15_otnwt")
+
+[node name="Game" type="Node2D" unique_id=246888789]
+script = ExtResource("1_lbhrr")
+enemies = Array[PackedScene]([ExtResource("2_yqjtg"), ExtResource("3_trtic"), ExtResource("4_ir15t"), ExtResource("5_ca42v"), ExtResource("4_kvpfn"), ExtResource("3_vtaks")])
+card_prefab = ExtResource("3_lnu2h")
+dice_prefab = ExtResource("4_p57ef")
+
+[node name="Player" parent="." unique_id=2102551300 instance=ExtResource("1_yqjtg")]
+position = Vector2(12, 151)
+
+[node name="Dices" type="Node2D" parent="." unique_id=1615678971]
+position = Vector2(109, 99)
+script = ExtResource("4_u5sy4")
+
+[node name="PlayerHand" type="Node2D" parent="." unique_id=2140193005]
+position = Vector2(125, 224)
+script = ExtResource("4_iywne")
+
+[node name="RollButton" parent="." unique_id=877385344 instance=ExtResource("8_gee14")]
+visible = false
+position = Vector2(19, 94)
+
+[node name="EnemySpawn" type="Node2D" parent="." unique_id=1600921174]
+position = Vector2(212, 9)
+
+[node name="EnemyAttack" type="Timer" parent="." unique_id=508566736]
+one_shot = true
+
+[node name="Shop" parent="." unique_id=1793999144 instance=ExtResource("15_ir15t")]
+visible = false
+
+[node name="Log" type="Label" parent="." unique_id=182409431]
+offset_left = 352.0
+offset_right = 480.0
+offset_bottom = 320.0
+label_settings = SubResource("LabelSettings_3xj4h")
+autowrap_mode = 1
+text_overrun_behavior = 1

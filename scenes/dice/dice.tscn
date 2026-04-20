@@ -8,6 +8,7 @@
 size = Vector2(21, 21)
 
 [node name="Dice" type="Node2D" unique_id=1679886439]
+scale = Vector2(2, 2)
 script = ExtResource("1_fvt51")
 
 [node name="number" type="Sprite2D" parent="." unique_id=604494920]

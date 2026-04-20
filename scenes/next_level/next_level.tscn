@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dyvikue5w8sq2"]
+
+[ext_resource type="Script" uid="uid://d1fhp2pqeq3g5" path="res://scenes/next_level/next_level.gd" id="1_7sd6t"]
+[ext_resource type="Texture2D" uid="uid://bood8riqvft4e" path="res://resources/txt_success.png" id="2_we6uh"]
+[ext_resource type="Texture2D" uid="uid://cmfncrra4n032" path="res://resources/click_to_continue.png" id="3_683ay"]
+
+[node name="Win" type="Node2D" unique_id=686750965]
+script = ExtResource("1_7sd6t")
+
+[node name="success" type="Sprite2D" parent="." unique_id=1516548418]
+position = Vector2(176, 128)
+texture = ExtResource("2_we6uh")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1319665319]
+position = Vector2(154, 288)
+texture = ExtResource("3_683ay")
+centered = false

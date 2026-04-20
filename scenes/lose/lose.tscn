@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c0kg1mwlm2atv"]
+
+[ext_resource type="Script" uid="uid://c18hvjejhfhkj" path="res://scenes/lose/lose.gd" id="1_mll2u"]
+[ext_resource type="Texture2D" uid="uid://4t3itrgxxvam" path="res://resources/txt_tryt_red.png" id="2_mll2u"]
+[ext_resource type="Texture2D" uid="uid://dgggskwst27rp" path="res://resources/txt_lose.png" id="2_r6nsb"]
+
+[node name="Lose" type="Node2D" unique_id=1638611908]
+script = ExtResource("1_mll2u")
+
+[node name="esc to restart" type="Sprite2D" parent="." unique_id=862732039]
+position = Vector2(160, 272)
+texture = ExtResource("2_mll2u")
+centered = false
+
+[node name="you died" type="Sprite2D" parent="." unique_id=1663629021]
+position = Vector2(176, 127)
+texture = ExtResource("2_r6nsb")
+centered = false

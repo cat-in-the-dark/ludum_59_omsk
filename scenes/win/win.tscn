@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b687wvow5aly7"]
+
+[ext_resource type="Script" uid="uid://cp650ct4pg4us" path="res://scenes/win/win.gd" id="1_vx0oi"]
+[ext_resource type="Texture2D" uid="uid://bood8riqvft4e" path="res://resources/txt_success.png" id="2_sh54m"]
+[ext_resource type="Texture2D" uid="uid://blium3gcv5was" path="res://resources/txt_restart_green.png" id="3_vx0oi"]
+
+[node name="Win" type="Node2D" unique_id=686750965]
+script = ExtResource("1_vx0oi")
+
+[node name="success" type="Sprite2D" parent="." unique_id=1516548418]
+position = Vector2(176, 128)
+texture = ExtResource("2_sh54m")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1319665319]
+position = Vector2(170, 288)
+texture = ExtResource("3_vx0oi")
+centered = false

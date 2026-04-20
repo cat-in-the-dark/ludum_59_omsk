@@ -18,11 +18,13 @@ func _ready() -> void:
 func killed() -> bool:
 	return hp <= 0
 
-func attack(state: Game.State):
+func attack(state: Game.State) -> int:
 	var tween = get_tree().create_tween()
 	tween.tween_property(skin, "position", initPos + Vector2(0, 15), 0.15).set_trans(Tween.TRANS_QUAD)
 	tween.tween_callback(state.player.get_damage.bind(dmg))
 	tween.tween_property(skin, "position", initPos, 0.1).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+	return dmg
 
 func animate_dmg():
 	var tween = get_tree().create_tween()
@@ -30,9 +32,9 @@ func animate_dmg():
 	tween.tween_property(skin, "position", initPos, 0.1).set_trans(Tween.TRANS_QUAD)
 
 func get_damage(damage: int):
+	await animate_dmg()
 	hp -= damage
 	bar.value = hp
-	animate_dmg()
 	if killed():
 		print("killed")
 		Killed.emit()

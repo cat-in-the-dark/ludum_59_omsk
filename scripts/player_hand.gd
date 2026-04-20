@@ -8,13 +8,23 @@ var max_width = 324
 var cards: Array[Card] = []
 
 func by_card_dice(a: Card, b: Card):
-	return a.dice < b.dice
+	return a.model.dice < b.model.dice
 
 func claim(card: Card):
 	self.add_child(card)
 	cards.append(card)
 	cards.sort_custom(by_card_dice)
 
+func highlight(value: int):
+	print('got highlight', value)
+	for card in cards:
+		if card.model.dice == value:
+			card.skin.highlight()
+
+func unhighlight(_value: int):
+	print('got unhighlight')
+	for card in cards:
+		card.skin.unhighlight()
 
 func _process(delta: float) -> void:
 	var size = cards.size()

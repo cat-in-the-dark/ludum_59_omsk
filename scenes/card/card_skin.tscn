@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://by8xrkvoxrffw" path="res://scenes/card/card_skin.gd" id="1_m2sfi"]
 [ext_resource type="Texture2D" uid="uid://c6kur4c5j7vux" path="res://resources/card_fire.png" id="2_8apba"]
 [ext_resource type="Texture2D" uid="uid://bnobiwpdwulao" path="res://resources/card-d6/d6-1.tres" id="3_dufxv"]
+[ext_resource type="Texture2D" uid="uid://6q0dbl32ta7n" path="res://resources/card_highlight.png" id="4_8apba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2sfi"]
 size = Vector2(46, 62)
@@ -17,6 +18,11 @@ centered = false
 [node name="number" type="Sprite2D" parent="." unique_id=523306759]
 position = Vector2(19, 50)
 texture = ExtResource("3_dufxv")
+centered = false
+
+[node name="highlight" type="Sprite2D" parent="." unique_id=433476515]
+visible = false
+texture = ExtResource("4_8apba")
 centered = false
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1893533766]

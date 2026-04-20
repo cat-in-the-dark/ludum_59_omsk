@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgggskwst27rp"
-path="res://.godot/imported/lose.png-d5104d48021e2e2974fd8f4d880c2846.ctex"
+uid="uid://ctbnpodk76c5k"
+path="res://.godot/imported/card_dice.png-8a9eb70da480e5b8c1ca870f24706330.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/lose.png"
-dest_files=["res://.godot/imported/lose.png-d5104d48021e2e2974fd8f4d880c2846.ctex"]
+source_file="res://resources/card_dice.png"
+dest_files=["res://.godot/imported/card_dice.png-8a9eb70da480e5b8c1ca870f24706330.ctex"]
 
 [params]
 
