@@ -24,6 +24,7 @@ var state: State
 @onready var shop: Shop = $Shop
 @onready var gamelog: RichTextLabel = $Log
 @onready var background: Sprite2D = $bg
+@onready var level_label: Label = $Level
 
 var new_cards: Array[Card.Model] = []
 
@@ -86,7 +87,7 @@ func _ready() -> void:
 		"res://scenes/backgrounds/bg3.png",
 		"res://scenes/backgrounds/bg4.png",
 	].pick_random())
-	
+	level_label.text = "Level: %d" % G.state.lvl
 	if G.state.lvl > 1:
 		$Tutorial.visible = false
 	shop.upgrade.connect(on_upgrade)

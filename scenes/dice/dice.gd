@@ -8,16 +8,7 @@ signal unhovered(dice)
 
 @onready var vis_number: Sprite2D = $number
 @onready var hover: Sprite2D = $number/hover
-
-var vis_numbers = [
-	"res://resources/d6/d6-0.tres",
-	"res://resources/d6/d6-1.tres",
-	"res://resources/d6/d6-2.tres",
-	"res://resources/d6/d6-3.tres",
-	"res://resources/d6/d6-4.tres",
-	"res://resources/d6/d6-5.tres",
-	"res://resources/d6/d6-6.tres",
-]
+@export var textures: Array[Texture2D]
 
 @export var value: int
 
@@ -27,7 +18,7 @@ func set_value(v: int):
 		unhovered.emit(value)
 
 	value = v
-	vis_number.texture = load(vis_numbers[v])
+	vis_number.texture = textures[v]
 	
 	if was_hovered:
 		hovered.emit(value)

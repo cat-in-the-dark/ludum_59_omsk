@@ -27,6 +27,10 @@ shader_parameter/screen_height = 270.0
 font = ExtResource("15_otnwt")
 font_size = 32
 
+[sub_resource type="LabelSettings" id="LabelSettings_uyinl"]
+font = ExtResource("15_otnwt")
+font_size = 32
+
 [node name="Game" type="Node2D" unique_id=246888789]
 script = ExtResource("1_lbhrr")
 enemies = Array[PackedScene]([ExtResource("2_yqjtg"), ExtResource("3_trtic"), ExtResource("4_ir15t"), ExtResource("5_ca42v"), ExtResource("4_kvpfn"), ExtResource("7_3xj4h"), ExtResource("3_vtaks")])
@@ -34,6 +38,7 @@ card_prefab = ExtResource("3_lnu2h")
 dice_prefab = ExtResource("4_p57ef")
 
 [node name="bg" type="Sprite2D" parent="." unique_id=722874670]
+z_index = -2
 material = SubResource("ShaderMaterial_10c2w")
 texture = ExtResource("11_5v6r0")
 centered = false
@@ -81,3 +86,11 @@ offset_right = 194.0
 offset_bottom = 76.0
 text = "click on a dice"
 label_settings = SubResource("LabelSettings_3xj4h")
+
+[node name="Level" type="Label" parent="." unique_id=589809328]
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 40.0
+offset_bottom = 17.0
+text = "Level: 0"
+label_settings = SubResource("LabelSettings_uyinl")
