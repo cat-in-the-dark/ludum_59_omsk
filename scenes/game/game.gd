@@ -153,6 +153,10 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_key_pressed(KEY_1):
 		on_enemy_killed()
+	
+	if Input.is_action_just_pressed("restart"):
+		G.restart()
+		get_tree().change_scene_to_file("res://scenes/game/game.tscn")
 
 func apply_cards(dice: int):
 	if state.applies <= 0:
