@@ -6,7 +6,7 @@
 
 [node name="RockEnemy" type="Node2D" unique_id=263087226]
 script = ExtResource("1_c0b2x")
-hp = 3
+hp = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1048489907]
 position = Vector2(7, 7)

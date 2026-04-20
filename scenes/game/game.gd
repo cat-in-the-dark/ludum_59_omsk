@@ -40,10 +40,13 @@ func to_gameover():
 	#setup_level(state.lvl)
 
 func on_enemy_killed():
+	if G.state.lvl >= 1:
+		G.state.dices = 2
+	if G.state.lvl >= 4:
+		G.state.dices = 3
 	G.state.cards.append_array(new_cards)
 	G.state.lvl += 1
-	if G.state.lvl == 4:
-		G.state.dices = 3
+	# await get_tree().create_timer(1.5).timeout
 	get_tree().change_scene_to_file("res://scenes/next_level/next_level.tscn")
 
 func is_shopping():
@@ -58,37 +61,33 @@ func on_upgrade(card: Card.Model):
 	turn()
 
 func setup_level(lvl: int):
-	if state and state.enemy:
-		state.enemy.Killed.disconnect(on_enemy_killed)
-		self.remove_child(state.enemy)
-
-	if lvl >= len(enemies):
-		call_deferred("to_gamewin")
-		return
-
 	state = State.new()
 	state.rolls_per_turn = 1
 	state.applies_per_turn = 1
 	state.player = player
 	state.player.set_max_hp(G.state.player_hp)
 
-	state.enemy = enemies[lvl].instantiate()
+	state.enemy = enemies[lvl % len(enemies)].instantiate()
+	state.enemy.dmg *= G.damage_scale(lvl)
+	state.enemy.hp += G.hp_add(lvl)
 	state.enemy.global_position = enemy_spawn.global_position
 	state.enemy.Killed.connect(on_enemy_killed)
 	self.add_child(state.enemy)
 
 	for card in G.state.cards:
-		add_card(card)
+		add_card_to_hand(card)
 
 
 func _ready() -> void:
+	if G.state.lvl > 1:
+		$Tutorial.visible = false
 	shop.upgrade.connect(on_upgrade)
 	roll_btn.clicked.connect(roll)
 	enemy_timer.timeout.connect(enemy_turn)
 	setup_level(G.state.lvl)
 	for i in range(G.state.dices):
 		add_dice()
-	if G.state.lvl > 0:
+	if len(G.state.cards) > 0:
 		show_shop()
 	else:
 		add_card(shop.get_first_card())
@@ -110,18 +109,21 @@ func turn():
 	state.applies = state.applies_per_turn
 	roll() # autoroll
 
-func add_card(model: Card.Model):
-	new_cards.append(model)
+func add_card_to_hand(model: Card.Model):
 	var card: Card = card_prefab.instantiate()
 	card.model = model
 	hand.claim(card)
 
+func add_card(model: Card.Model):
+	new_cards.append(model)
+	add_card_to_hand(model)
+
 func dice_clicked(value: int):
 	hand.unhighlight(value)
 	apply_cards(value)
+	$Tutorial.visible = false
 
 func add_dice():
-	print("CHEATER")
 	var dice: Dice = dice_prefab.instantiate()
 	dices.claim(dice)
 	dice.clicked.connect(dice_clicked)
@@ -139,6 +141,9 @@ func roll():
 func _process(_delta: float) -> void:
 	if is_shopping():
 		return
+	
+	if Input.is_key_pressed(KEY_1):
+		on_enemy_killed()
 
 func apply_cards(dice: int):
 	if state.applies <= 0:
@@ -149,9 +154,11 @@ func apply_cards(dice: int):
 		if card.model.dice == dice:
 			applied_cards.append(card)
 
+	var damage = 0
 	for card in applied_cards:
-		apply_card(card, applied_cards)
-	
+		damage += apply_card(card, applied_cards)
+	await state.enemy.get_damage(damage)
+
 	if state.enemy and not state.enemy.killed():
 		enemy_timer.start(0.35)
 
@@ -181,4 +188,4 @@ func apply_card(card: Card, applied_cards: Array[Card]):
 		state.player.hp = clampi(state.player.hp + card.model.heal, 0, state.player.max_hp)
 
 	add_to_log("[color=#008751]%s[/color]" % txt)
-	state.enemy.get_damage(damage)
+	return damage

@@ -22,21 +22,21 @@ var vis_numbers = [
 @export var value: int
 
 func set_value(v: int):
+	var was_hovered = hover.visible
+	if was_hovered:
+		unhovered.emit(value)
+
 	value = v
 	vis_number.texture = load(vis_numbers[v])
 	
+	if was_hovered:
+		hovered.emit(value)
 
 func _ready() -> void:
 	set_value(0)
 
 func roll():
-	# TODO: animate it
-	var was_hovered = hover.visible
-	if was_hovered:
-		unhovered.emit(value)
 	set_value(randi_range(1, 6))
-	if was_hovered:
-		hovered.emit(value)
 
 func reset():
 	set_value(0)

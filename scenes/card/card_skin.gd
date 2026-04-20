@@ -25,7 +25,7 @@ var vis_numbers = [
 var model: Card.Model = Card.Model.new()
 var hovered: bool = false
 
-@onready var vis_icon: Sprite2D = $icon
+@onready var vis_icon: TextureButton = $Button
 @onready var vis_number: Sprite2D = $number
 @onready var vis_highlight: Sprite2D = $highlight
 
@@ -35,22 +35,22 @@ func _ready() -> void:
 	_update_render()
 
 func _update_render():
-	vis_icon.texture = load(vis_icons[model.variant])
+	vis_icon.texture_normal = load(vis_icons[model.variant])
+	#vis_icon.texture = load(vis_icons[model.variant])
 	vis_number.texture = load(vis_numbers[model.dice-1])
 
 func update_model(m: Card.Model):
 	self.model = m
 	_update_render()
 
-func _on_area_2d_mouse_entered() -> void:
+func _on_button_mouse_entered() -> void:
 	hovered = true
 
-func _on_area_2d_mouse_exited() -> void:
+func _on_button_mouse_exited() -> void:
 	hovered = false
 
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event.is_action_pressed("click"):
-		clicked.emit(model)
+func on_pressed():
+	clicked.emit(model)
 
 func highlight():
 	vis_highlight.visible = true

@@ -13,9 +13,15 @@ class State:
 	var lvl: int = 0
 	var cards: Array[Card.Model] = []
 	var player_hp: int = 10
-	var dices: int = 2
+	var dices: int = 1
 
 var state = State.new()
 
 func restart():
 	state = State.new()
+
+func damage_scale(lvl: int) -> int:
+	return 1 + floori(float(lvl) / 7)
+
+func hp_add(lvl: int) -> int:
+	return 5 * floori(float(lvl) / 7)

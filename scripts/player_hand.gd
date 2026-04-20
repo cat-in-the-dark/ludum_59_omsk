@@ -16,13 +16,11 @@ func claim(card: Card):
 	cards.sort_custom(by_card_dice)
 
 func highlight(value: int):
-	print('got highlight', value)
 	for card in cards:
 		if card.model.dice == value:
 			card.skin.highlight()
 
 func unhighlight(_value: int):
-	print('got unhighlight')
 	for card in cards:
 		card.skin.unhighlight()
 

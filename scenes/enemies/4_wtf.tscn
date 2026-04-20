@@ -6,8 +6,7 @@
 
 [node name="WTFEnemy" type="Node2D" unique_id=263087226]
 script = ExtResource("1_y7m3h")
-dmg = 2
-hp = 24
+hp = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1048489907]
 position = Vector2(7, 7)

@@ -27,14 +27,19 @@ func attack(state: Game.State) -> int:
 	return dmg
 
 func animate_dmg():
-	var tween = get_tree().create_tween()
+	var tree = get_tree()
+	if tree == null or killed():
+		return
+	var tween = tree.create_tween()
 	tween.tween_property(skin, "position", initPos + Vector2(10, 0), 0.15).set_trans(Tween.TRANS_ELASTIC)
 	tween.tween_property(skin, "position", initPos, 0.1).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
 
 func get_damage(damage: int):
+	if damage == 0:
+		return
 	await animate_dmg()
 	hp -= damage
 	bar.value = hp
 	if killed():
-		print("killed")
 		Killed.emit()

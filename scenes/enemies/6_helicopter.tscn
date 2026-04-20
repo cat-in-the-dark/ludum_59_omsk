@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bcirn5ob66mc3"]
+
+[ext_resource type="Script" uid="uid://b03uipo8qxuub" path="res://scenes/enemies/enemy.gd" id="1_nfivw"]
+[ext_resource type="Texture2D" uid="uid://cy65k7ou2hrqp" path="res://resources/boss_helicopter.png" id="2_nfivw"]
+[ext_resource type="PackedScene" uid="uid://brb8ensrfwfgk" path="res://scenes/health_bar/HealthBar.tscn" id="3_l6lva"]
+
+[node name="RockEnemy" type="Node2D" unique_id=263087226]
+script = ExtResource("1_nfivw")
+hp = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1048489907]
+position = Vector2(7, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("2_nfivw")
+centered = false
+
+[node name="HealthBar" parent="." unique_id=1140887869 instance=ExtResource("3_l6lva")]
