@@ -23,6 +23,7 @@ var state: State
 @onready var apply_btn: ActionButton = $ApplyButton
 @onready var enemy_timer: Timer = $EnemyAttack
 @onready var player: Player = $Player
+@onready var shop: Shop = $Shop
 
 func to_gamewin():
 	# todo fade
@@ -34,8 +35,20 @@ func to_gameover():
 
 func on_enemy_killed():
 	print("ENEMY KILLED")
+	show_shop()
 	setup_level(state.lvl + 1)
 
+func is_shopping():
+	return shop.visible
+
+func show_shop():
+	shop.show_shop()
+
+
+func on_upgrade(dice: int, variant: Card.CardVariant):
+	shop.hide_shop()
+	add_card(dice, variant)
+	
 
 func setup_level(lvl: int):
 	if state and state.enemy:
@@ -43,7 +56,6 @@ func setup_level(lvl: int):
 		self.remove_child(state.enemy)
 
 	if lvl >= len(enemies):
-		print("WIN")
 		call_deferred("to_gamewin")
 		return
 
@@ -61,13 +73,15 @@ func setup_level(lvl: int):
 
 
 func _ready() -> void:
+	shop.upgrade.connect(on_upgrade)
 	roll_btn.Clicked.connect(roll)
 	apply_btn.Clicked.connect(apply_cards)
 	enemy_timer.timeout.connect(enemy_turn)
 	setup_level(0)
 	for i in range(G.MAX_DICES):
 		add_dice()
-	turn()
+	show_shop()
+	#turn()
 
 func enemy_turn():
 	dices.reset()
@@ -85,18 +99,25 @@ func turn():
 	state.rolls = state.rolls_per_turn
 	state.applies = state.applies_per_turn
 
-func add_card():
+func add_card(dice: int, variant: Card.CardVariant):
 	var card: Card = card_prefab.instantiate()
-	# demo
-	card.dice = randi_range(1, 6)
-	card.variant = [
-		Card.CardVariant.LIGHTNING,
-		Card.CardVariant.FIRE,
-		Card.CardVariant.COLD
-	].pick_random()
+	card.dice = dice
+	card.variant = variant
 	hand.claim(card)
 
+func add_card_random():
+	print("CHEATER")
+	add_card(
+		randi_range(1, 6),
+		[
+			Card.CardVariant.LIGHTNING,
+			Card.CardVariant.FIRE,
+			Card.CardVariant.COLD
+		].pick_random()
+	)
+
 func add_dice():
+	print("CHEATER")
 	var dice: Dice = dice_prefab.instantiate()
 	dices.claim(dice)
 
@@ -109,8 +130,11 @@ func roll():
 		pass
 
 func _process(_delta: float) -> void:
+	if is_shopping():
+		return
+
 	if Input.is_action_just_pressed("ui_accept"):
-		add_card()
+		add_card_random()
 
 	if Input.is_action_just_pressed("roll"):
 		roll()

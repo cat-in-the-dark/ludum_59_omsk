@@ -6,8 +6,8 @@
 
 [node name="PavukEnemy" type="Node2D" unique_id=263087226]
 script = ExtResource("1_4hfte")
-dmg = 2
-hp = 20
+dmg = 5
+hp = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1048489907]
 position = Vector2(7, 11)

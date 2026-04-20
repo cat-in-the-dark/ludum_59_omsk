@@ -2,6 +2,8 @@ extends Node2D
 
 class_name CardSkin
 
+signal clicked(dice, variant)
+
 var vis_icons = {
 	Card.CardVariant.FIRE: "res://resources/card_fire.png",
 	Card.CardVariant.COLD: "res://resources/card_ice.png",
@@ -29,10 +31,23 @@ func _ready() -> void:
 	vis_icon.texture = load(vis_icons[variant])
 	vis_number.texture = load(vis_numbers[dice-1])
 
+func generate():
+	print("generate")
+	dice = randi_range(1, 6)
+	variant = [
+		Card.CardVariant.LIGHTNING,
+		Card.CardVariant.FIRE,
+		Card.CardVariant.COLD
+	].pick_random()
+	vis_icon.texture = load(vis_icons[variant])
+	vis_number.texture = load(vis_numbers[dice-1])
 
 func _on_area_2d_mouse_entered() -> void:
 	hovered = true
 
-
 func _on_area_2d_mouse_exited() -> void:
 	hovered = false
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("click"):
+		clicked.emit(dice, variant)
