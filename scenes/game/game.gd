@@ -18,7 +18,6 @@ var state: State
 @onready var hand: PlayerHand = $PlayerHand
 @onready var dices: Dices = $Dices
 @onready var enemy_spawn: Node2D = $EnemySpawn
-@onready var roll_btn: ActionButton = $RollButton
 @onready var enemy_timer: Timer = $EnemyAttack
 @onready var player: Player = $Player
 @onready var shop: Shop = $Shop
@@ -84,7 +83,6 @@ func _ready() -> void:
 	if G.state.lvl > 1:
 		$Tutorial.visible = false
 	shop.upgrade.connect(on_upgrade)
-	roll_btn.clicked.connect(roll)
 	enemy_timer.timeout.connect(enemy_turn)
 	setup_level(G.state.lvl)
 	for i in range(G.state.dices):
