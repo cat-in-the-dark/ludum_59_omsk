@@ -15,11 +15,13 @@ func _ready() -> void:
 func killed() -> bool:
 	return hp <= 0
 
+func set_hp(amount: int):
+	hp = amount
+	progress.value = amount
+
 func set_max_hp(amount: int):
 	max_hp = amount
-	hp = max_hp
-	progress.max_value = max_hp
-	progress.value = max_hp
+	progress.max_value = amount
 
 func get_damage(damage: int):
 	hp -= damage

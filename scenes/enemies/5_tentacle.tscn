@@ -6,7 +6,7 @@
 
 [node name="TentacleEnemy" type="Node2D" unique_id=263087226]
 script = ExtResource("1_w5su6")
-hp = 7
+hp = 18
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1048489907]
 position = Vector2(7, 11)

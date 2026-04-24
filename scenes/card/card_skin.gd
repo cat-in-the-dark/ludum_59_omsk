@@ -9,7 +9,7 @@ var init_pos: Vector2
 @export var icons_textures: Dictionary[Card.CardVariant, Texture2D] = {}
 @export var numbers_texturesd: Array[Texture2D] = []
 
-var model: Card.Model = Card.Model.new()
+var model: Card.Model
 var hovered: bool = false
 
 @onready var vis_icon: TextureButton = $Button
@@ -22,6 +22,9 @@ func _ready() -> void:
 	_update_render()
 
 func _update_render():
+	if model == null:
+		return
+
 	vis_icon.texture_normal = icons_textures[model.variant]
 	vis_number.texture = numbers_texturesd[model.dice-1]
 

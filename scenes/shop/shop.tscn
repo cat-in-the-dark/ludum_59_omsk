@@ -2,21 +2,24 @@
 
 [ext_resource type="Script" uid="uid://s15fr50c2d7q" path="res://scenes/shop/shop.gd" id="1_7lxhl"]
 [ext_resource type="PackedScene" uid="uid://718te1jmcvel" path="res://scenes/card/card_skin.tscn" id="1_100s2"]
-[ext_resource type="Texture2D" uid="uid://v676xojlgf0g" path="res://resources/upgrade_bg.png" id="2_qaxay"]
+[ext_resource type="Texture2D" uid="uid://27mmt3rk4ysp" path="res://scenes/shop/upgrade_bg.png" id="2_7lxhl"]
 
 [node name="Shop" type="Node2D" unique_id=1793999144]
 script = ExtResource("1_7lxhl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745225811]
-position = Vector2(136, 91)
-texture = ExtResource("2_qaxay")
+position = Vector2(112, 90)
+texture = ExtResource("2_7lxhl")
 centered = false
 
 [node name="visual" parent="." unique_id=1166773202 instance=ExtResource("1_100s2")]
-position = Vector2(154, 128)
+position = Vector2(136, 127)
 
 [node name="visual2" parent="." unique_id=1001236776 instance=ExtResource("1_100s2")]
-position = Vector2(208, 128)
+position = Vector2(190, 127)
 
 [node name="visual3" parent="." unique_id=2139414445 instance=ExtResource("1_100s2")]
-position = Vector2(262, 128)
+position = Vector2(244, 127)
+
+[node name="visual4" parent="." unique_id=1254819884 instance=ExtResource("1_100s2")]
+position = Vector2(298, 127)

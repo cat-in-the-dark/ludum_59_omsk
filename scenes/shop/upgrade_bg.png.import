@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v676xojlgf0g"
-path="res://.godot/imported/upgrade_bg.png-e5b2bad7aa6f81f5cf4fa6aaba2dba5f.ctex"
+uid="uid://27mmt3rk4ysp"
+path="res://.godot/imported/upgrade_bg.png-5040f6b1195b537f20cff7d2ee7de86f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/upgrade_bg.png"
-dest_files=["res://.godot/imported/upgrade_bg.png-e5b2bad7aa6f81f5cf4fa6aaba2dba5f.ctex"]
+source_file="res://scenes/shop/upgrade_bg.png"
+dest_files=["res://.godot/imported/upgrade_bg.png-5040f6b1195b537f20cff7d2ee7de86f.ctex"]
 
 [params]
 

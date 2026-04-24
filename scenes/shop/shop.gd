@@ -4,7 +4,8 @@ class_name Shop
 @onready var items: Array[CardSkin] = [
 	$visual,
 	$visual2,
-	$visual3
+	$visual3,
+	$visual4
 ]
 
 signal upgrade(card)
@@ -12,52 +13,41 @@ signal upgrade(card)
 func _ready() -> void:
 	for item in items:
 		item.clicked.connect(selected)
+	generate_shop()
 
 func hide_shop():
 	self.visible = false
+	
+func get_first_card() -> Card.Model:
+	return Card.Model.new(
+		randi_range(1, 6),
+		Card.CardVariant.FIRE,
+	)
 
-func generate_card(dice: int):
-	var model = Card.Model.new()
-	model.dice = dice
-	model.variant = [
+func generate_shop_cards() -> Array[Card.Model]:
+	var shop_cards: Array[Card.Model] = []
+	var variants = [
 		Card.CardVariant.LIGHTNING,
 		Card.CardVariant.FIRE,
 		Card.CardVariant.COLD,
 		Card.CardVariant.HEAL
-	].pick_random()
-	if model.variant == Card.CardVariant.HEAL:
-		model.heal = G.HEAL_VALUE
-	if model.variant == Card.CardVariant.FIRE:
-		model.damage = G.FIRE_DMG
-	if model.variant == Card.CardVariant.COLD:
-		model.damage = G.COLD_DMG
-	if model.variant == Card.CardVariant.LIGHTNING:
-		model.damage = G.LIGHTNING_DMG
-	return model
-	
-func get_first_card():
-	var model = Card.Model.new()
-	model.dice = randi_range(1, 6)
-	model.variant = [
-		Card.CardVariant.LIGHTNING,
-		Card.CardVariant.FIRE,
-		Card.CardVariant.COLD,
-	].pick_random()
-	if model.variant == Card.CardVariant.FIRE:
-		model.damage = G.FIRE_DMG
-	if model.variant == Card.CardVariant.COLD:
-		model.damage = G.COLD_DMG
-	if model.variant == Card.CardVariant.LIGHTNING:
-		model.damage = G.LIGHTNING_DMG
-	return model
+	]
+	variants.shuffle()
+	for i in len(items):
+		shop_cards.append(Card.Model.new(
+			randi_range(1, 6),
+			variants[i % len(variants)]
+		))
+	return shop_cards
+
+func generate_shop():
+	var models = generate_shop_cards()
+	for i in len(items):
+		items[i].update_model(models[i])
 
 func show_shop():
 	self.visible = true
-	var dices = [1,2,3,4,5,6]
-	dices.shuffle()
-	for i in range(3):
-		var model = generate_card(dices[i])
-		items[i].update_model(model)
+	generate_shop()
 
 func selected(card: Card.Model):
 	upgrade.emit(card)

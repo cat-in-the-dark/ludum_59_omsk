@@ -10,10 +10,12 @@ var cards: Array[Card] = []
 func by_card_dice(a: Card, b: Card):
 	return a.model.dice < b.model.dice
 
-func claim(card: Card):
-	self.add_child(card)
+func claim(card: Card):	
 	cards.append(card)
 	cards.sort_custom(by_card_dice)
+	for i in len(cards):
+		cards[i].z_index = i
+	self.add_child(card)
 
 func highlight(value: int):
 	for card in cards:

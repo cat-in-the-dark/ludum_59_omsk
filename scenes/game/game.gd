@@ -65,7 +65,8 @@ func setup_level(lvl: int):
 	state.rolls_per_turn = 1
 	state.applies_per_turn = 1
 	state.player = player
-	state.player.set_max_hp(G.state.player_hp)
+	state.player.set_hp(G.state.player_hp)
+	state.player.set_max_hp(G.state.player_max_hp)
 
 	state.enemy = enemies[lvl % len(enemies)].instantiate()
 	state.enemy.dmg *= G.damage_scale(lvl)
@@ -87,7 +88,7 @@ func _ready() -> void:
 	setup_level(G.state.lvl)
 	for i in range(G.state.dices):
 		add_dice()
-	if len(G.state.cards) > 0:
+	if G.state.lvl > 0:
 		show_shop()
 	else:
 		add_card(shop.get_first_card())
@@ -102,6 +103,7 @@ func enemy_turn():
 	turn()
 
 func turn():
+	G.state.player_hp = player.hp
 	if state.player.killed():
 		to_gameover()
 		return
@@ -175,18 +177,21 @@ func apply_card(card: Card, applied_cards: Array[Card]):
 			if other_card.model.variant == Card.CardVariant.COLD:
 				damage *= G.FIRE_ON_COLD_MUL
 				txt = "p: %d melt dmg\n" % damage
+				break
 	if card.model.variant == Card.CardVariant.COLD:
 		txt = "p: %d ice dmg\n" % damage
 		for other_card in applied_cards:
 			if other_card.model.variant == Card.CardVariant.LIGHTNING:
 				damage *= G.COLD_ON_LIGHT_MUL
 				txt = "p: %d shock dmg\n" % damage
+				break
 	if card.model.variant == Card.CardVariant.LIGHTNING:
 		txt = "p: %d electro dmg\n" % damage
 		for other_card in applied_cards:
 			if other_card.model.variant == Card.CardVariant.FIRE:
 				damage *= G.LIGHT_IN_FIRE_MUL
 				txt = "p: %d plasma dmg\n" % damage
+				break
 	if card.model.heal > 0:
 		txt = "p: %d heal\n" % card.model.heal
 		state.player.hp = clampi(state.player.hp + card.model.heal, 0, state.player.max_hp)
