@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcirn5ob66mc3"]
 
 [ext_resource type="Script" uid="uid://b03uipo8qxuub" path="res://scenes/enemies/enemy.gd" id="1_nfivw"]
-[ext_resource type="Texture2D" uid="uid://cy65k7ou2hrqp" path="res://resources/boss_helicopter.png" id="2_nfivw"]
+[ext_resource type="Texture2D" uid="uid://cy65k7ou2hrqp" path="res://scenes/enemies/boss_helicopter.png" id="2_nfivw"]
 [ext_resource type="PackedScene" uid="uid://brb8ensrfwfgk" path="res://scenes/health_bar/HealthBar.tscn" id="3_l6lva"]
 
 [node name="RockEnemy" type="Node2D" unique_id=263087226]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c7m18qed5fyd3"]
 
 [ext_resource type="Script" uid="uid://b03uipo8qxuub" path="res://scenes/enemies/enemy.gd" id="1_4hfte"]
-[ext_resource type="Texture2D" uid="uid://cyr3ijiertfl6" path="res://resources/pavuk.png" id="2_4hfte"]
+[ext_resource type="Texture2D" uid="uid://cyr3ijiertfl6" path="res://scenes/enemies/pavuk.png" id="2_4hfte"]
 [ext_resource type="PackedScene" uid="uid://brb8ensrfwfgk" path="res://scenes/health_bar/HealthBar.tscn" id="3_2b1eh"]
 
 [node name="PavukEnemy" type="Node2D" unique_id=263087226]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dbquiq0dp34um"]
+
+[ext_resource type="Shader" uid="uid://boq4h4xq00h8" path="res://scenes/backgrounds/sh1.gdshader" id="1_16hyl"]
+[ext_resource type="Script" uid="uid://b08x5s5iugdxe" path="res://scenes/backgrounds/background.gd" id="1_nyngk"]
+[ext_resource type="Texture2D" uid="uid://boq6gn76l2f7b" path="res://scenes/backgrounds/bg1.png" id="2_e8i3o"]
+[ext_resource type="Texture2D" uid="uid://cgv74t3f8w61f" path="res://scenes/backgrounds/bg2.png" id="3_16hyl"]
+[ext_resource type="Texture2D" uid="uid://deg5gcfhls56o" path="res://scenes/backgrounds/bg3.png" id="4_wssff"]
+[ext_resource type="Texture2D" uid="uid://cd0wd7s3gl8oo" path="res://scenes/backgrounds/bg4.png" id="5_3krd6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wssff"]
+shader = ExtResource("1_16hyl")
+shader_parameter/screen_height = 270.0
+
+[node name="Background" type="Sprite2D" unique_id=1235248108]
+z_index = -2
+material = SubResource("ShaderMaterial_wssff")
+centered = false
+script = ExtResource("1_nyngk")
+textures = Array[Texture2D]([ExtResource("2_e8i3o"), ExtResource("3_16hyl"), ExtResource("4_wssff"), ExtResource("5_3krd6")])

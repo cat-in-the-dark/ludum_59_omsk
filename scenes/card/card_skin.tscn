@@ -1,12 +1,27 @@
 [gd_scene format=3 uid="uid://718te1jmcvel"]
 
 [ext_resource type="Script" uid="uid://by8xrkvoxrffw" path="res://scenes/card/card_skin.gd" id="1_m2sfi"]
-[ext_resource type="Texture2D" uid="uid://c6kur4c5j7vux" path="res://resources/card_fire.png" id="2_8apba"]
-[ext_resource type="Texture2D" uid="uid://bnobiwpdwulao" path="res://resources/card-d6/d6-1.tres" id="3_dufxv"]
-[ext_resource type="Texture2D" uid="uid://6q0dbl32ta7n" path="res://resources/card_highlight.png" id="4_8apba"]
+[ext_resource type="Texture2D" uid="uid://c6kur4c5j7vux" path="res://scenes/card/card_fire.png" id="2_8apba"]
+[ext_resource type="Texture2D" uid="uid://bnobiwpdwulao" path="res://scenes/card/card-d6/d6-1.tres" id="3_dufxv"]
+[ext_resource type="Texture2D" uid="uid://c7agpwhar66c" path="res://scenes/card/card_ice.png" id="3_h6v2s"]
+[ext_resource type="Texture2D" uid="uid://dpuraa1egprxn" path="res://scenes/card/card-d6/d6-2.tres" id="3_x2lea"]
+[ext_resource type="Texture2D" uid="uid://ds7143txau4rj" path="res://scenes/card/card-d6/d6-3.tres" id="4_6wmvy"]
+[ext_resource type="Texture2D" uid="uid://6q0dbl32ta7n" path="res://scenes/card/card_highlight.png" id="4_8apba"]
+[ext_resource type="Texture2D" uid="uid://dp4g8aas5asst" path="res://scenes/card/card_lightning.png" id="4_xcvi8"]
+[ext_resource type="Texture2D" uid="uid://cu807rdm25ctr" path="res://scenes/card/card-d6/d6-4.tres" id="5_vsxmn"]
+[ext_resource type="Texture2D" uid="uid://hg5u7851u0c4" path="res://scenes/card/card_heal.png" id="5_xcvi8"]
+[ext_resource type="Texture2D" uid="uid://dwmvyfgd6u8le" path="res://scenes/card/card-d6/d6-5.tres" id="6_k4lam"]
+[ext_resource type="Texture2D" uid="uid://ebuk81p7fw7n" path="res://scenes/card/card-d6/d6-6.tres" id="7_le2xd"]
 
 [node name="visual" type="Node2D" unique_id=1166773202]
 script = ExtResource("1_m2sfi")
+icons_textures = Dictionary[int, Texture2D]({
+0: ExtResource("2_8apba"),
+1: ExtResource("3_h6v2s"),
+2: ExtResource("4_xcvi8"),
+3: ExtResource("5_xcvi8")
+})
+numbers_texturesd = Array[Texture2D]([ExtResource("3_dufxv"), ExtResource("3_x2lea"), ExtResource("4_6wmvy"), ExtResource("5_vsxmn"), ExtResource("6_k4lam"), ExtResource("7_le2xd")])
 
 [node name="Button" type="TextureButton" parent="." unique_id=1344217276]
 offset_right = 48.0

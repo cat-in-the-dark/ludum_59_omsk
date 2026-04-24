@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://ef8bql2233fd"]
 
-[ext_resource type="Texture2D" uid="uid://b71d0nohu4p3" path="res://resources/d6/d6-0.tres" id="1_4fys5"]
+[ext_resource type="Texture2D" uid="uid://b71d0nohu4p3" path="res://scenes/dice/d6/d6-0.tres" id="1_4fys5"]
 [ext_resource type="Script" uid="uid://4gkdundopoie" path="res://scenes/dice/dice.gd" id="1_fvt51"]
-[ext_resource type="Texture2D" uid="uid://b1b5kajxq6fme" path="res://resources/d6/d6-1.tres" id="3_6mlf6"]
-[ext_resource type="Texture2D" uid="uid://cse32gc1ue6k8" path="res://resources/d6/highlight.png" id="3_oo8kb"]
-[ext_resource type="Texture2D" uid="uid://bolai0r7c2ta6" path="res://resources/d6/d6-2.tres" id="4_xgauj"]
-[ext_resource type="Texture2D" uid="uid://c8lh6hb8lppbh" path="res://resources/d6/d6-3.tres" id="5_43la2"]
-[ext_resource type="Texture2D" uid="uid://cdthwhpco46o2" path="res://resources/d6/d6-4.tres" id="6_miycf"]
-[ext_resource type="Texture2D" uid="uid://d3b3gbeinxcox" path="res://resources/d6/d6-5.tres" id="7_xil5a"]
-[ext_resource type="Texture2D" uid="uid://iyvffoxwehx0" path="res://resources/d6/d6-6.tres" id="8_fkk24"]
+[ext_resource type="Texture2D" uid="uid://b1b5kajxq6fme" path="res://scenes/dice/d6/d6-1.tres" id="3_6mlf6"]
+[ext_resource type="Texture2D" uid="uid://cse32gc1ue6k8" path="res://scenes/dice/d6/highlight.png" id="3_oo8kb"]
+[ext_resource type="Texture2D" uid="uid://bolai0r7c2ta6" path="res://scenes/dice/d6/d6-2.tres" id="4_xgauj"]
+[ext_resource type="Texture2D" uid="uid://c8lh6hb8lppbh" path="res://scenes/dice/d6/d6-3.tres" id="5_43la2"]
+[ext_resource type="Texture2D" uid="uid://cdthwhpco46o2" path="res://scenes/dice/d6/d6-4.tres" id="6_miycf"]
+[ext_resource type="Texture2D" uid="uid://d3b3gbeinxcox" path="res://scenes/dice/d6/d6-5.tres" id="7_xil5a"]
+[ext_resource type="Texture2D" uid="uid://iyvffoxwehx0" path="res://scenes/dice/d6/d6-6.tres" id="8_fkk24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvt51"]
 size = Vector2(21, 21)

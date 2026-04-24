@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://i4jv8tinjc71"]
 
 [ext_resource type="Script" uid="uid://b03uipo8qxuub" path="res://scenes/enemies/enemy.gd" id="1_c0b2x"]
-[ext_resource type="Texture2D" uid="uid://do13sxkrb0xs8" path="res://resources/rock.png" id="1_h6vna"]
+[ext_resource type="Texture2D" uid="uid://do13sxkrb0xs8" path="res://scenes/enemies/rock.png" id="1_h6vna"]
 [ext_resource type="PackedScene" uid="uid://brb8ensrfwfgk" path="res://scenes/health_bar/HealthBar.tscn" id="3_u4wed"]
 
 [node name="RockEnemy" type="Node2D" unique_id=263087226]

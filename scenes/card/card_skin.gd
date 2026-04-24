@@ -6,21 +6,8 @@ signal clicked(dice, variant)
 
 var init_pos: Vector2
 
-var vis_icons = {
-	Card.CardVariant.FIRE: "res://resources/card_fire.png",
-	Card.CardVariant.COLD: "res://resources/card_ice.png",
-	Card.CardVariant.LIGHTNING: "res://resources/card_lightning.png",
-	Card.CardVariant.HEAL: "res://resources/card_heal.png",
-}
-
-var vis_numbers = [
-	"res://resources/card-d6/d6-1.tres",
-	"res://resources/card-d6/d6-2.tres",
-	"res://resources/card-d6/d6-3.tres",
-	"res://resources/card-d6/d6-4.tres",
-	"res://resources/card-d6/d6-5.tres",
-	"res://resources/card-d6/d6-6.tres",
-]
+@export var icons_textures: Dictionary[Card.CardVariant, Texture2D] = {}
+@export var numbers_texturesd: Array[Texture2D] = []
 
 var model: Card.Model = Card.Model.new()
 var hovered: bool = false
@@ -35,9 +22,8 @@ func _ready() -> void:
 	_update_render()
 
 func _update_render():
-	vis_icon.texture_normal = load(vis_icons[model.variant])
-	#vis_icon.texture = load(vis_icons[model.variant])
-	vis_number.texture = load(vis_numbers[model.dice-1])
+	vis_icon.texture_normal = icons_textures[model.variant]
+	vis_number.texture = numbers_texturesd[model.dice-1]
 
 func update_model(m: Card.Model):
 	self.model = m

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgj0b13acjr6g"]
 
 [ext_resource type="Script" uid="uid://b03uipo8qxuub" path="res://scenes/enemies/enemy.gd" id="1_w5su6"]
-[ext_resource type="Texture2D" uid="uid://cjm5p3ohemfnm" path="res://resources/tentacle.png" id="2_w5su6"]
+[ext_resource type="Texture2D" uid="uid://cjm5p3ohemfnm" path="res://scenes/enemies/tentacle.png" id="2_w5su6"]
 [ext_resource type="PackedScene" uid="uid://brb8ensrfwfgk" path="res://scenes/health_bar/HealthBar.tscn" id="3_wxugc"]
 
 [node name="TentacleEnemy" type="Node2D" unique_id=263087226]

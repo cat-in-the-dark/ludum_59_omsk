@@ -14,14 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://itn6ihkspeh4" path="res://scenes/enemies/4_wtf.tscn" id="5_ca42v"]
 [ext_resource type="PackedScene" uid="uid://bcirn5ob66mc3" path="res://scenes/enemies/6_helicopter.tscn" id="7_3xj4h"]
 [ext_resource type="PackedScene" uid="uid://cqvlotuu2d57b" path="res://scenes/action_button.tscn" id="8_gee14"]
-[ext_resource type="Texture2D" uid="uid://deg5gcfhls56o" path="res://scenes/backgrounds/bg3.png" id="11_5v6r0"]
-[ext_resource type="Shader" uid="uid://boq4h4xq00h8" path="res://scenes/backgrounds/sh1.gdshader" id="11_uyinl"]
+[ext_resource type="PackedScene" uid="uid://dbquiq0dp34um" path="res://scenes/backgrounds/background.tscn" id="11_5v6r0"]
 [ext_resource type="PackedScene" uid="uid://d3emkmjlpx7bl" path="res://scenes/shop/shop.tscn" id="15_ir15t"]
 [ext_resource type="FontFile" uid="uid://b6k68axjuu08m" path="res://resources/m3x6.ttf" id="15_otnwt"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_10c2w"]
-shader = ExtResource("11_uyinl")
-shader_parameter/screen_height = 270.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_3xj4h"]
 font = ExtResource("15_otnwt")
@@ -37,11 +32,7 @@ enemies = Array[PackedScene]([ExtResource("2_yqjtg"), ExtResource("3_trtic"), Ex
 card_prefab = ExtResource("3_lnu2h")
 dice_prefab = ExtResource("4_p57ef")
 
-[node name="bg" type="Sprite2D" parent="." unique_id=722874670]
-z_index = -2
-material = SubResource("ShaderMaterial_10c2w")
-texture = ExtResource("11_5v6r0")
-centered = false
+[node name="Background" parent="." unique_id=1235248108 instance=ExtResource("11_5v6r0")]
 
 [node name="Player" parent="." unique_id=2102551300 instance=ExtResource("1_yqjtg")]
 position = Vector2(12, 151)

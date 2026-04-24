@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fprttxjvbd4d"]
 
 [ext_resource type="Script" uid="uid://b03uipo8qxuub" path="res://scenes/enemies/enemy.gd" id="1_ds5vx"]
-[ext_resource type="Texture2D" uid="uid://dbf8wn5a50eyf" path="res://resources/kaktus.png" id="2_ds5vx"]
+[ext_resource type="Texture2D" uid="uid://dbf8wn5a50eyf" path="res://scenes/enemies/kaktus.png" id="2_ds5vx"]
 [ext_resource type="PackedScene" uid="uid://brb8ensrfwfgk" path="res://scenes/health_bar/HealthBar.tscn" id="3_jfcmi"]
 
 [node name="KaktusEnemy" type="Node2D" unique_id=263087226]
