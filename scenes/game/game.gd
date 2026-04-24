@@ -40,10 +40,10 @@ func to_gameover():
 	#setup_level(state.lvl)
 
 func on_enemy_killed():
-	if G.state.lvl >= 1:
+	if G.state.lvl >= G.two_dice_after:
 		G.state.dices = 2
-	if G.state.lvl >= 4:
-		G.state.dices = 3
+	#if G.state.lvl >= 4:
+		#G.state.dices = 3
 	G.state.cards.append_array(new_cards)
 	G.state.lvl += 1
 	# await get_tree().create_timer(1.5).timeout
