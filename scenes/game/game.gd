@@ -40,10 +40,6 @@ func to_gameover():
 	#setup_level(state.lvl)
 
 func on_enemy_killed():
-	if G.state.lvl >= G.two_dice_after:
-		G.state.dices = 2
-	#if G.state.lvl >= 4:
-		#G.state.dices = 3
 	G.state.cards.append_array(new_cards)
 	G.state.lvl += 1
 	# await get_tree().create_timer(1.5).timeout
@@ -61,6 +57,11 @@ func on_upgrade(card: Card.Model):
 	turn()
 
 func setup_level(lvl: int):
+	if G.state.lvl >= G.two_dice_after:
+		G.state.dices = 2
+	#if G.state.lvl >= 4:
+		#G.state.dices = 3
+
 	state = State.new()
 	state.rolls_per_turn = 1
 	state.applies_per_turn = 1
@@ -143,9 +144,6 @@ func roll():
 func _process(_delta: float) -> void:
 	if is_shopping():
 		return
-	
-	if Input.is_key_pressed(KEY_1):
-		on_enemy_killed()
 	
 	if Input.is_action_just_pressed("restart"):
 		G.restart()

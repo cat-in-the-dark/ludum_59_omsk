@@ -5,14 +5,14 @@ class_name Dices
 var spacing = 48
 var dices: Array[Dice]
 
-var queue: Array[int] = [1,2,3,4,5,6]
+var queue: Array = range(1,7)
 
 func claim(dice: Dice):
 	self.add_child(dice)
 	dices.append(dice)
 	
 func reset_queue():
-	queue = [1,2,3,4,5,6]
+	queue = range(1,7)
 	queue.shuffle()
 
 func roll():
@@ -20,7 +20,7 @@ func roll():
 		if len(queue) == 0:
 			reset_queue()
 		var value = queue.pop_back()
-		dice.set_value(value)
+		dice.roll_to(value)
 
 func _ready() -> void:
 	reset_queue()

@@ -37,7 +37,7 @@ dice_prefab = ExtResource("4_p57ef")
 position = Vector2(12, 151)
 
 [node name="Dices" type="Node2D" parent="." unique_id=1615678971]
-position = Vector2(109, 99)
+position = Vector2(125, 99)
 script = ExtResource("4_u5sy4")
 
 [node name="PlayerHand" type="Node2D" parent="." unique_id=2140193005]

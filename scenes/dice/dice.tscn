@@ -21,19 +21,18 @@ textures = Array[Texture2D]([ExtResource("1_4fys5"), ExtResource("3_6mlf6"), Ext
 [node name="number" type="Sprite2D" parent="." unique_id=604494920]
 texture = ExtResource("1_4fys5")
 centered = false
-offset = Vector2(-10, -10)
 
 [node name="hover" type="Sprite2D" parent="number" unique_id=769747202]
 visible = false
 z_index = -1
-position = Vector2(-11, -11)
+position = Vector2(-1, -1)
 texture = ExtResource("3_oo8kb")
 centered = false
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1307829890]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=46797615]
-position = Vector2(0.5, 0.5)
+position = Vector2(10.5, 10.5)
 shape = SubResource("RectangleShape2D_fvt51")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

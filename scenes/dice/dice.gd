@@ -11,6 +11,7 @@ signal unhovered(dice)
 @export var textures: Array[Texture2D]
 
 @export var value: int
+@export var rolling: bool = false
 
 func set_value(v: int):
 	var was_hovered = hover.visible
@@ -26,8 +27,29 @@ func set_value(v: int):
 func _ready() -> void:
 	set_value(0)
 
-func roll():
-	set_value(randi_range(1, 6))
+func roll_to(result: int):
+	if rolling:
+		return
+
+	rolling = true
+	var was_hovered = hover.visible
+	if was_hovered:
+		hover.visible = false
+		unhovered.emit(value)
+
+	var values = range(1, 7)
+	values.shuffle()
+	values.append(result)
+
+	for v in values:
+		value = v
+		vis_number.texture = textures[v]
+		await get_tree().create_timer(0.125).timeout
+
+	if was_hovered:
+		hover.visible = true
+		hovered.emit(value)
+	rolling = false
 
 func reset():
 	set_value(0)
@@ -43,7 +65,7 @@ func _on_area_2d_mouse_exited() -> void:
 	unhovered.emit(value)
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if value == 0:
+	if value == 0 or rolling:
 		return
 	if event.is_action_pressed("click") and event.is_pressed():
 		clicked.emit(value)
